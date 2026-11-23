@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101111" />
+  <meta name="description" content="Embassy of Burgers — 4 продукта за 44 000 сум. Бургер Канада, Coca-Cola, наггетсы и кетчуп. Рассмотрите бургер в интерактивном 3D." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="4 за 44 000 — Embassy of Burgers" />
+  <meta property="og:description" content="Бургер Канада + Coca-Cola + наггетсы + кетчуп. Интерактивная 3D-презентация набора." />
+  <title>4 за 44 000 — Бургер Канада | Embassy of Burgers</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/brand/embassy-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="./assets/products/burger-preview.webp" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body data-scene="intro">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="brand-pattern" aria-hidden="true"></div>
+  <div class="background-glow" id="backgroundGlow" aria-hidden="true"></div>
+  <div class="orbit orbit--one" aria-hidden="true"></div>
+  <div class="orbit orbit--two" aria-hidden="true"></div>
+  <div class="model-fallback" aria-hidden="true"><img src="./assets/products/burger-preview.webp" alt="" /></div>
+  <canvas id="modelCanvas" aria-label="Трёхмерная модель бургера Канада. Перетаскивайте для вращения, используйте стрелки для изменения ракурса." tabindex="0"></canvas>
+  <div class="floor-shadow" id="floorShadow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#intro" class="brand" aria-label="Embassy of Burgers — наверх"><img class="brand-logo" src="./assets/brand/embassy-logo.svg" alt="Embassy of Burgers" /></a>
+    <nav class="nav-main" aria-label="Навигация по странице">
+      <a href="#intro" data-nav="intro" class="is-active">АКЦИЯ</a>
+      <a href="#craft" data-nav="craft">БУРГЕР КАНАДА</a>
+      <a href="#details" data-nav="details">СОСТАВ НАБОРА</a>
+      <a href="#explore" data-nav="explore">3D-ПРОСМОТР</a>
+    </nav>
+    <a href="#details" class="header-cta"><span class="header-cta-dot"></span><span>4 ЗА 44 000</span><span aria-hidden="true">↗</span></a>
+  </header>
+
+  <div class="side-index" aria-hidden="true"><span>EMBASSY OF BURGERS</span><span class="side-index-line"></span><span>СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span></div>
+  <aside class="chapter-rail" aria-label="Разделы">
+    <span class="rail-current" id="railCurrent">01</span><span class="rail-divider"></span><span class="rail-total">04</span>
+    <div class="rail-dots">
+      <a href="#intro" data-rail="intro" class="active" aria-label="Акция"></a>
+      <a href="#craft" data-rail="craft" aria-label="Бургер Канада"></a>
+      <a href="#details" data-rail="details" aria-label="Состав набора"></a>
+      <a href="#explore" data-rail="explore" aria-label="3D-просмотр"></a>
+    </div>
+  </aside>
+
+  <div class="model-tags" id="modelTags" aria-label="Детали 3D-модели">
+    <button class="tag tag--top" data-tag="top" type="button"><span class="tag-dot"></span><span>01 / ВЕРХ</span></button>
+    <button class="tag tag--middle" data-tag="middle" type="button"><span class="tag-dot"></span><span>02 / СЕРЕДИНА</span></button>
+    <button class="tag tag--bottom" data-tag="bottom" type="button"><span class="tag-dot"></span><span>03 / ОСНОВАНИЕ</span></button>
+  </div>
+  <div class="detail-tooltip" id="detailTooltip" role="status" aria-live="polite">
+    <span class="tooltip-count" id="tooltipCount">01 / 03</span>
+    <strong id="tooltipTitle">ВЕРХ БУРГЕРА</strong><p id="tooltipText">Рассмотрите верхнюю часть бургера с любого ракурса.</p>
+    <button id="tooltipClose" type="button" aria-label="Закрыть подсказку">×</button>
+  </div>
+
+  <main id="siteMain">
+    <section class="chapter chapter--intro" id="intro" data-scene="intro">
+      <div class="chapter-inner intro-inner">
+        <div class="eyebrow"><span class="eyebrow-rule"></span><span>EMBASSY OF BURGERS / КОМБО</span></div>
+        <div class="offer-kicker">ЧЕТЫРЕ ПРОДУКТА. ОДНА ЦЕНА.</div>
+        <h1 class="hero-title"><span class="hero-four">4 <small>ЗА</small></span><span class="hero-number">44<span class="price-space" aria-hidden="true"></span>000</span><span class="hero-currency">СУМ</span></h1>
+        <div class="hero-rule"></div>
+        <p class="hero-description"><strong>Бургер Канада</strong>, Coca-Cola, наггетсы и кетчуп — всё в одном наборе.</p>
+        <div class="hero-actions">
+          <a href="#details" class="primary-link"><span>СМОТРЕТЬ СОСТАВ</span><span aria-hidden="true">↗</span></a>
+          <a href="#explore" class="secondary-link">БУРГЕР В 3D <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="intro-meta"><span class="meta-star">✳</span><span>БУРГЕР КАНАДА</span><span class="meta-line"></span><span>ИНТЕРАКТИВНАЯ ПРЕЗЕНТАЦИЯ</span></div>
+      </div>
+      <div class="hero-outline" aria-hidden="true">44 000</div>
+      <div class="model-stamp" aria-hidden="true"><span class="stamp-circle">360°</span><span>РЕАЛЬНАЯ<br/>3D-МОДЕЛЬ</span></div>
+      <div class="drag-indicator" id="dragIndicator" aria-hidden="true"><span class="drag-arrows">↔</span><span>ВРАЩАЙТЕ БУРГЕР</span></div>
+      <div class="bottom-corner-note"><span>01</span> / ЛИСТАЙТЕ ВНИЗ</div>
+    </section>
+
+    <section class="chapter chapter--craft" id="craft" data-scene="craft">
+      <div class="chapter-inner craft-inner">
+        <div class="eyebrow"><span class="eyebrow-rule"></span><span>01 / ГЛАВНЫЙ В НАБОРЕ</span></div>
+        <h2 class="chapter-title">БУРГЕР<br/><span class="accent-word">КАНАДА</span><span class="headline-dot">.</span></h2>
+        <p class="chapter-description">Герой нашего комбо. Рассмотрите фирменный бургер в объёме: фактуру булочки, форму и каждый ракурс.</p>
+        <div class="feature-line"><span class="feature-icon">✳</span><span>ВРАЩАЙТЕ МОДЕЛЬ ПАЛЬЦЕМ ИЛИ МЫШЬЮ</span></div>
+        <a href="#explore" class="text-link">ВЫБРАТЬ РАКУРС <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="craft-foot">ОРИГИНАЛЬНАЯ 3D-МОДЕЛЬ <span>—</span> EMBASSY OF BURGERS</div>
+      <div class="huge-sideword" aria-hidden="true">CANADA</div>
+    </section>
+
+    <section class="chapter chapter--details" id="details" data-scene="details">
+      <div class="chapter-inner details-inner">
+        <div class="details-copy">
+          <div class="eyebrow"><span class="eyebrow-rule"></span><span>02 / ЧТО ВХОДИТ</span></div>
+          <h2 class="chapter-title details-title">ВСЁ<br/><span class="accent-word">В НАБОРЕ</span><span class="headline-dot">.</span></h2>
+          <p class="chapter-description">Четыре позиции за <strong>44 000 сум</strong>.<br/>Бургер Канада — главный. Остальное — в комплекте.</p>
+          <div class="bundle-burger"><span class="bundle-number">01</span><span>БУРГЕР КАНАДА</span><span class="bundle-pill">3D</span></div>
+          <div class="product-grid">
+            <article class="product-card"><div class="product-media"><img src="./assets/products/coca-cola.webp" alt="Фирменный стакан Coca-Cola" loading="lazy" /></div><div class="product-caption"><span>02 / НАПИТОК</span><strong>Coca-Cola</strong></div></article>
+            <article class="product-card"><div class="product-media"><img src="./assets/products/nuggets.webp" alt="Наггетсы Embassy of Burgers в фирменной упаковке" loading="lazy" /></div><div class="product-caption"><span>03 / ДОПОЛНЕНИЕ</span><strong>Наггетсы</strong></div></article>
+            <article class="product-card"><div class="product-media"><img src="./assets/products/ketchup.webp" alt="Порция кетчупа" loading="lazy" /></div><div class="product-caption"><span>04 / СОУС</span><strong>Кетчуп</strong></div></article>
+          </div>
+        </div>
+        <div class="details-footnote"><span>04 ПРОДУКТА</span><span class="footnote-line"></span><span>44 000 СУМ</span></div>
+      </div>
+    </section>
+
+    <section class="chapter chapter--explore" id="explore" data-scene="explore">
+      <div class="explore-heading">
+        <div class="eyebrow"><span class="eyebrow-rule"></span><span>03 / 3D-ПРОСМОТР</span></div>
+        <h2 class="explore-title">ПОСМОТРЕТЬ<br/><span>ПОБЛИЖЕ<span class="headline-dot">.</span></span></h2>
+        <p>Поверните бургер и выберите удобный ракурс.</p>
+      </div>
+      <div class="explore-controls" id="exploreControls">
+        <div class="controls-heading"><span class="controls-icon">✳</span><span>УПРАВЛЕНИЕ МОДЕЛЬЮ</span><span class="controls-status" id="controlsStatus"><span></span> 3D</span></div>
+        <div class="camera-presets" role="group" aria-label="Ракурсы модели">
+          <button class="preset is-current" data-preset="front" type="button">01 <span>СПЕРЕДИ</span></button>
+          <button class="preset" data-preset="side" type="button">02 <span>СБОКУ</span></button>
+          <button class="preset" data-preset="top" type="button">03 <span>СВЕРХУ</span></button>
+          <button class="preset" data-preset="back" type="button">04 <span>СЗАДИ</span></button>
+        </div>
+        <div class="control-bottom">
+          <div class="control-buttons">
+            <button class="tool-btn" id="toggleSpin" type="button" aria-label="Включить автовращение" title="Автовращение">⟳</button>
+            <button class="tool-btn" id="zoomIn" type="button" aria-label="Приблизить" title="Приблизить">+</button>
+            <button class="tool-btn" id="zoomOut" type="button" aria-label="Отдалить" title="Отдалить">−</button>
+            <button class="tool-btn" id="resetView" type="button" aria-label="Сбросить ракурс" title="Сбросить">⌖</button>
+          </div>
+          <span class="control-hint">ПЕРЕТАСКИВАЙТЕ · МАСШТАБИРУЙТЕ</span>
+        </div>
+        <p class="viewer-note" id="viewerNote">Вы видите исходную 3D-модель бургера Канада.</p>
+      </div>
+      <div class="explore-footer"><span>EMBASSY OF BURGERS</span><span>4 ЗА 44 000 СУМ</span><a href="#details">ПОСМОТРЕТЬ СОСТАВ ↗</a></div>
+    </section>
+  </main>
+
+  <div class="page-progress" id="pageProgress" aria-hidden="true"><div></div></div>
+  <div class="loader" id="loader" aria-live="polite">
+    <div class="loader-brand"><img src="./assets/brand/embassy-logo.svg" alt="Embassy of Burgers" /></div>
+    <div class="loader-center"><div class="loader-orbit"><div></div></div><p>ГОТОВИМ<br/><span>ВАШ 3D-ПРОСМОТР</span></p><div class="loader-progress-track"><div id="loaderProgress"></div></div><span id="loaderText">ЗАГРУЖАЕМ МОДЕЛЬ — 0%</span></div>
+    <div class="loader-bottom"><span>EMBASSY OF BURGERS</span><span>БУРГЕР КАНАДА / 3D</span></div>
+    <div class="loader-error" id="loaderError" hidden><p>3D-режим недоступен</p><span>Показываем изображение оригинальной модели.</span><button type="button" id="retryLoad">ПОПРОБОВАТЬ СНОВА ↗</button></div>
+  </div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
